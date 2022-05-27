@@ -34,6 +34,7 @@ const increamentByValueAction = (value) => {
   };
 };
 
+// chekcing
 const counterReducer = (state = intialState, action) => {
   switch (action.type) {
     case increament:
