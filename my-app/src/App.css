@@ -1,0 +1,14 @@
+.counter-area {
+  text-align: center;
+}
+.main {
+  display: flex;
+  justify-content: center;
+}
+button {
+  color: black;
+  padding: 14px 20px;
+  margin: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}

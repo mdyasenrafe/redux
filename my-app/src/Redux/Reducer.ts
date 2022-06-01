@@ -23,3 +23,5 @@ const reducer = (state: IState = initialState, action: any) => {
       return state;
   }
 };
+
+export default reducer;
