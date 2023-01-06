@@ -3,10 +3,11 @@ import React, { useEffect, useState } from "react";
 import { Container, Row, Col, Card, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { getProducts } from "../features/Product/ProductSlice";
 // import { FetchData } from "../Redux/Action";
 
 const FoodComponents = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const [foods, setFoods] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -23,6 +24,14 @@ const FoodComponents = () => {
     const res = await axios.get(url);
     setFoods(res.data.data);
   };
+  const product = useSelector((state) => state.product);
+  const { products } = product;
+
+  useEffect(() => {
+    dispatch(getProducts());
+  }, []);
+
+  console.log("product", products);
 
   return (
     <Container className="py-5">
