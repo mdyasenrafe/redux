@@ -28,7 +28,14 @@ const TodoListScreen = ({ navigation }) => {
         style={styles.item}
         onPress={() => navigation.navigate("TodoView", { id: item.id })}
       >
-        <Text style={styles.title}>{item.title}</Text>
+        <Text
+          style={{
+            color: item?.completed ? "green" : "red",
+            fontSize: 14,
+          }}
+        >
+          {item.title}
+        </Text>
         <Button
           title="Delete"
           onPress={() => {
@@ -68,9 +75,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
     flexDirection: "row",
     justifyContent: "space-between",
-  },
-  title: {
-    fontSize: 24,
   },
 });
 

@@ -1,15 +1,22 @@
 import React, { useState } from "react";
 import { Button, TextInput, View, Alert } from "react-native";
+import { useUpdateTodoMutation } from "../api/todo-api";
 
-const TodoEdit = () => {
-  const [title, setTitle] = useState("");
+const TodoEdit = ({ route }) => {
+  const id = route?.params?.id;
+  const [updateTodo, { isLoading }] = useUpdateTodoMutation();
+  const [title, setTitle] = useState(route?.params?.title);
 
   const onSubmit = () => {
     if (title === "") {
       Alert.alert("Error", "Please enter a title");
     } else {
-      // Submit form (e.g., post to JSON server)
-      // Remember to reset the form after successfully submitting
+      const body = {
+        title: title,
+        id: id,
+        completed: false,
+      };
+      updateTodo(body);
       console.log(`Submitted: ${title}`);
       setTitle("");
     }
@@ -19,7 +26,7 @@ const TodoEdit = () => {
     <View style={{ flex: 1, padding: 16 }}>
       <TextInput
         value={title}
-        onChangeText={text => setTitle(text)}
+        onChangeText={(text) => setTitle(text)}
         placeholder="Enter Todo Title"
         style={{
           height: 40,

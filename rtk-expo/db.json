@@ -1,33 +1,13 @@
 {
   "todos": [
     {
-      "title": "Changing the way it works.",
-      "completed": false,
-      "id": 1
-    },
-    {
-      "id": 2,
-      "title": "Do the laundry",
-      "completed": false
-    },
-    {
-      "id": 3,
-      "title": "Finish report",
-      "completed": false
-    },
-    {
-      "id": 4,
-      "title": "Read a book",
-      "completed": true
-    },
-    {
-      "id": 5,
-      "title": "Write a letter",
-      "completed": false
-    },
-    {
       "id": "705d",
-      "title": "Another test caching",
+      "title": "Checking",
+      "completed": false
+    },
+    {
+      "id": "a43b",
+      "title": "Need to generate apk ifle path sync app",
       "completed": false
     }
   ]
