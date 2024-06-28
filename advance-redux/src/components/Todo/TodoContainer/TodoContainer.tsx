@@ -1,11 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { TodoCard } from "..";
+import AddTodoModal from "../AddTodoModal/AddTodoModal";
 
 export function TodoContainer() {
   return (
     <div>
       <div className="flex justify-between items-center mb-5">
-        <Button className="bg-primary-gradient text-xl ">Add Todo</Button>
+        <AddTodoModal />
         <Button>Filter</Button>
       </div>
       <div className="bg-primary-gradient w-full h-full rounded-xl p-[5px]">
