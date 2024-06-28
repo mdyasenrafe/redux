@@ -5,5 +5,5 @@ type TContainerProps = {
 };
 
 export function Container({ children }: TContainerProps) {
-  return <div>{children}</div>;
+  return <div className="h-screen w-full max-w-7xl mx-auto">{children}</div>;
 }
