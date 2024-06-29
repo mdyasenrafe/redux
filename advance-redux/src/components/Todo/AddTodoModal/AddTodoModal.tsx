@@ -3,13 +3,14 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { addTodo } from "@/redux/features/todo/todoSlice";
+import { useAppDispatch } from "@/redux/hooks";
 import { DialogClose } from "@radix-ui/react-dialog";
 import { FormEvent, useState } from "react";
 
@@ -17,9 +18,18 @@ export default function AddTodoModal() {
   const [taskTitle, setTaskTitle] = useState("");
   const [description, setDescripiton] = useState("");
 
+  const dispatch = useAppDispatch();
+
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
-    console.log({ taskTitle, description });
+    // console.log({  });
+    const id = Math.random().toString(32).substring(2, 7);
+    const bodyData = {
+      id,
+      title: taskTitle,
+      description,
+    };
+    dispatch(addTodo(bodyData));
   };
 
   return (
