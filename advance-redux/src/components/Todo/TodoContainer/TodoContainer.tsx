@@ -6,7 +6,7 @@ import { useGetTodosQuery } from "@/api/api";
 export function TodoContainer() {
   // const { todos } = useAppSelector((state) => state.todos);
   const { data, isLoading } = useGetTodosQuery(undefined);
-  console.log(data);
+
   return (
     <div>
       <div className="flex justify-between items-center mb-5">

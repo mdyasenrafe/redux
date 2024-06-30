@@ -15,21 +15,22 @@ export const TodoCard: React.FC<TTodoCardProps> = ({ item }) => {
   return (
     <div className="bg-white  rounded-md flex justify-between items-center p-3 border">
       <input
+        className="mr-3"
         type="checkbox"
         name="complete"
         id="complete"
         onChange={toggleState}
       />
-      <p>{item.title}</p>
-      <p>{item.description}</p>
-      <div>
+      <p className="flex-1">{item.title}</p>
+      <p className="flex-[2]">{item.description}</p>
+      <div className="flex-1">
         {item.isCompleted ? (
           <p className="text-green-500">Done</p>
         ) : (
           <p className="text-red-500">Pending</p>
         )}
       </div>
-      <div className="space-x-3">
+      <div className="space-x-3 flex-1">
         <Button
           className="bg-red-500"
           onClick={() => dispatch(removeTodo(item.id))}
