@@ -1,3 +1,4 @@
+import { useAddTodosMutation } from "@/api/api";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -9,8 +10,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { addTodo } from "@/redux/features/todo/todoSlice";
-import { useAppDispatch } from "@/redux/hooks";
+import { TTodo } from "@/redux/features/todo/types";
 import { DialogClose } from "@radix-ui/react-dialog";
 import { FormEvent, useState } from "react";
 
@@ -18,18 +18,23 @@ export default function AddTodoModal() {
   const [taskTitle, setTaskTitle] = useState("");
   const [description, setDescripiton] = useState("");
 
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
+
+  // apis
+  const [addTodo] = useAddTodosMutation();
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
     // console.log({  });
     const id = Math.random().toString(32).substring(2, 7);
-    const bodyData = {
+    const bodyData: TTodo = {
       id,
       title: taskTitle,
       description,
+      isCompleted: false,
     };
-    dispatch(addTodo(bodyData));
+    // dispatch(addTodo(bodyData));
+    addTodo(bodyData);
   };
 
   return (
